@@ -4,3 +4,4 @@ numpy==1.26.4
 plotly==6.5.2
 wordcloud==1.9.6
 matplotlib==3.9.2
+pillow==10.4.0
