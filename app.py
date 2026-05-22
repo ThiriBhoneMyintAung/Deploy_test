@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from wordcloud import WordCloud, STOPWORDS
+#from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
 st.title("Sentiment Analysisi of Tweets about US Airelines")
@@ -61,15 +61,5 @@ if len(choice)>0:
 st.sidebar.header("Word Cloud")
 word_sentiment = st.sidebar.radio('Display word cloud for what sentiment?', ('positive','neutral','negative'))
 
-if not st.sidebar.checkbox("Close",True, key='4'):
-    st.header('Word cloud for %s sentiment' % (word_sentiment))
-    df = data[data['airline_sentiment']==word_sentiment]
-    words = ' '.join(df['text'])
-    processed_words=' '.join([word for word in words.split() if 'http' not in word and not word.startswith('0') and word != 'RT'])
-    wordCloud = WordCloud(stopwords=STOPWORDS,background_color='white',height=640, width =800).generate(processed_words)
-    plt.imshow(wordCloud)
-    plt.xticks([])
-    plt.yticks([])
-    st.pyplot()
                           
     
